@@ -1,6 +1,7 @@
 dockerfiles
 topgit
 .env
+docker-compose.yml
 
 __pycache__
 .vscode

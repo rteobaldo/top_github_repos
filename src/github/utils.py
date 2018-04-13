@@ -1,7 +1,6 @@
 import requests
 
 def get_github_repos(language):
-    """Uses the Google Maps API to calculate the distance between points."""
 
     url = "https://api.github.com/search/repositories"
 
@@ -11,7 +10,10 @@ def get_github_repos(language):
     }
 
     response = requests.get(url, params=payload)
+
+    if response.status_code != 200:
+        return []
+
     json_response = response.json()
     items = json_response.get('items', [])
-
     return items
