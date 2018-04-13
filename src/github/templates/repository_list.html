@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table>
+      {% for repo in object_list %}
+        <tr>
+          <td><a href="{% url 'repository-detail' repo.language.pk repo.pk %}">{{ repo.full_name }}</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
