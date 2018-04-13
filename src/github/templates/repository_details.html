@@ -3,18 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
   <body>
 
-    <h1>{{ object.full_name }}</h1>
+    <div class="container pt-5">
 
-    <p>Descrição: {{ object.description }}</p>
+      <div class="row">
+        <div class="col">
+          <div class="mb-4">
+            <h2><strong>{{ object.full_name }}</strong></h2>
+            <p><em>{{ object.description }}</em></p>
+          </div>
 
-    <p>URL: <a href="{{ object.html_url }}">{{ object.html_url }}</a></p>
+          <p><strong>URL:</strong> <a href="{{ object.html_url }}" target="_blank">{{ object.html_url }}</a></p>
 
-    <p>Estrelas: {{ object.stargazers_count }}</p>
+          <p><strong>Stars:</strong> {{ object.stargazers_count }}</p>
 
-    <p>Linguagem: {{ object.language.name }}</p>
+          <p><strong>Language:</strong> {{ object.language.name }}</p>
+        </div>
+      </div>
 
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
   </body>
 </html>

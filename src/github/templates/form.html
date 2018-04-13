@@ -3,39 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
   <body>
-    <form action="" method="post">
-      {% csrf_token %}
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col">
+          <form class="form-inline justify-content-center" action="" method="post">
+            {% csrf_token %}
 
-      <ul class="errorlist">
-        {% if form.non_field_errors %}
-          <li>{{ form.non_field_errors }}</li>
-        {% endif %}
-        {% for field in form %}
-          {% if field.errors %}
-            <li>
-              {{ field.label }}
-              <ul class="errorlist">
-                {% for error in field.errors %}
-                  <li>{{ error }}</li>
+
+            <ul class="errorlist">
+              {% if form.non_field_errors %}
+                <li>{{ form.non_field_errors }}</li>
+              {% endif %}
+              {% for field in form %}
+                {% if field.errors %}
+                  <li>
+                    {{ field.label }}
+                    <ul class="errorlist">
+                      {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+            <label class="" for="inlineFormInputName2">Adicionar Linguagem</label>
+            <input type="text" class="form-control mx-4" name="name" id="inlineFormInputName2" placeholder="Ruby, Python...">
+            <button class="btn btn-primary px-3">Salvar</button>
+          </form>
+
+
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="list-group mt-5">
+                {% for language in programming_languages %}
+                  <a class="list-group-item list-group-item-action" href="{% url 'repository-list' language.pk %}">{{ language.name }}</a>
                 {% endfor %}
-              </ul>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+              </div>
+            </div>
+          </div>
 
-      {{ form.name }}
-      </form>
-      <input type="submit" value="Salvar">
-    </form>
-    <table>
-      {% for language in programming_languages %}
-        <tr>
-          <td><a href="{% url 'repository-list' language.pk %}">{{ language.name }}</a></td>
-        </tr>
-      {% endfor %}
-    </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
   </body>
 </html>
