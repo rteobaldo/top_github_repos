@@ -22,7 +22,6 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-    'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -34,7 +33,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -118,13 +116,6 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 SHORT_DATETIME_FORMAT = "d/m/Y P"
 DATETIME_FORMAT = "N j, Y, P"
 TIME_FORMAT = "P"
-
-def show_toolbar(request):
-    return True
-
-DEBUG_TOOLBAR_CONFIG = {
-    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
-}
 
 if DEBUG:
    INTERNAL_IPS = ('127.0.0.1', 'localhost',)

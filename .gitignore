@@ -1,0 +1,6 @@
+dockerfiles
+topgit
+.env
+
+__pycache__
+.vscode
